@@ -36,7 +36,7 @@ getWeather = function(cityName) {
 
             console.log(data[0]);
             console.log(data[0].lat, data[0].lon)
-
+            // weather app url
             var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial" + "&appid=" + myKey;
 
             fetch(apiUrl).then(function(response) {
@@ -48,14 +48,6 @@ getWeather = function(cityName) {
         });
     });
 
-    // weather app url
-
- 
-
-
-
-    // make request to the url
-
 };
 
 // not working
@@ -64,16 +56,17 @@ displayWeather = function(weather, searchTerm) {
     var forecastDayDiv = document.createElement("div");
     var forecastDayP = document.createElement("p");
     currentWeatherContainer.innerHTML = "";
-    forecastDayDiv.textContent = "";
+    daysContainer.innerHTML = "";
     citySearchTerm.textContent = searchTerm;
 
-    
+    var subtitle = document.createElement("h2")
+    subtitle.innerHTML = "5 Day Forecast: ";
+    daysContainer.appendChild(subtitle);
 
     console.log(searchTerm);
     console.log(weather);
     // current temperature
     var currentTemp = weather.current.temp;
-
     var currentTempEl = document.createElement("p");
     currentTempEl.classList = "col-12";
     currentTempEl.innerHTML = "Temperature: " + currentTemp + " degrees F";
@@ -82,7 +75,6 @@ displayWeather = function(weather, searchTerm) {
 
     // current description
     var currentDesc = weather.current.weather[0].description;
-
     var currentDescEl = document.createElement("p");
     currentDescEl.classList = "col-12";
     currentDescEl.textContent = currentDesc;
@@ -91,7 +83,6 @@ displayWeather = function(weather, searchTerm) {
 
     // current humidity
     var currentHumidity = weather.current.humidity;
-
     var currentHumidityEl = document.createElement("p");
     currentHumidityEl.classList = "col-12";
     currentHumidityEl.innerHTML = "Humidity: " + currentHumidity;
@@ -100,7 +91,6 @@ displayWeather = function(weather, searchTerm) {
 
     // current wind speed
     var currentWindSpeed = weather.current.wind_speed;
-
     var currentWindSpeedEl = document.createElement("p");
     currentWindSpeedEl.classList = "col-12";
     currentWindSpeedEl.innerHTML = "Wind Speed: " + currentWindSpeed;
@@ -108,8 +98,7 @@ displayWeather = function(weather, searchTerm) {
     currentWeatherContainer.appendChild(currentWindSpeedEl);
 
     // current UV index
-    var currentUvi = weather.current.wind_speed;
-
+    var currentUvi = weather.current.uvi;
     var currentUviEl = document.createElement("p");
     currentUviEl.classList = "col-12";
     currentUviEl.innerHTML = "UV Index: " + currentUvi;
@@ -134,17 +123,36 @@ displayWeather = function(weather, searchTerm) {
         weatherElDesc = document.createElement("li");
         weatherElDesc.innerHTML = forecastDesc;
 
+        // forecast humidity
+        var forecastHum = weather.daily[i].humidity;
+        weatherElHum = document.createElement("li");
+        weatherElHum.innerHTML = "Humidity: " + forecastHum;
+
+        // forecast wind speed
+        var forecastWindSpeed = weather.daily[i].wind_speed;
+        weatherElWindSpeed = document.createElement("li");
+        weatherElWindSpeed.innerHTML = "Wind Speed: " + forecastWindSpeed;
+
+        // forecast uv index
+        var forecastUvi = weather.daily[i].uvi;
+        weatherElUvi = document.createElement("li");
+        weatherElUvi.innerHTML = "UV Index: " + forecastUvi;
+        
         // append container to the dom
 
         // add all elements together to day ul
         forecastDayUl.appendChild(weatherElDesc);
         forecastDayUl.appendChild(weatherElTemp);
+        forecastDayUl.appendChild(weatherElHum);
+        forecastDayUl.appendChild(weatherElWindSpeed);
+        forecastDayUl.appendChild(weatherElUvi);
 
-
+        // add ul to container
         forecastDayP.appendChild(forecastDayUl);
         forecastDayDiv.appendChild(forecastDayP);
         daysContainer.appendChild(forecastDayDiv);
-    }
+    };
+
 }
 
 userFormEl.addEventListener("submit", formSubmitHandler);
