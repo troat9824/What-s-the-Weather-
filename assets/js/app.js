@@ -77,16 +77,16 @@ displayWeather = function(weather, searchTerm) {
 
     var subtitle = document.createElement("h2")
     subtitle.innerHTML = "5 Day Forecast: ";
-    subtitle.setAttribute("class", "col-12 text-center")
+    subtitle.setAttribute("class", "col-12 text-center border border-dark border-4")
     daysContainer.appendChild(subtitle);
 
     console.log(searchTerm);
     console.log(weather);
-    // current temperature
+    // current Temp
     var currentTemp = weather.current.temp;
     var currentTempEl = document.createElement("p");
     currentTempEl.classList = "text-start";
-    currentTempEl.innerHTML = "Temperature: " + currentTemp + " degrees F";
+    currentTempEl.innerHTML = "Temp: " + currentTemp + " ° F";
 
     currentWeatherContainer.appendChild(currentTempEl);
 
@@ -103,15 +103,15 @@ displayWeather = function(weather, searchTerm) {
     var currentHumidity = weather.current.humidity;
     var currentHumidityEl = document.createElement("p");
     currentHumidityEl.classList = "text-start";
-    currentHumidityEl.innerHTML = "Humidity: " + currentHumidity;
+    currentHumidityEl.innerHTML = "Humidity: " + currentHumidity + " %";
 
     currentWeatherContainer.appendChild(currentHumidityEl);
 
-    // current wind speed
+    // current Wind
     var currentWindSpeed = weather.current.wind_speed;
     var currentWindSpeedEl = document.createElement("p");
     currentWindSpeedEl.classList = "text-start";
-    currentWindSpeedEl.innerHTML = "Wind Speed: " + currentWindSpeed;
+    currentWindSpeedEl.innerHTML = "Wind: " + currentWindSpeed + " MPH";
 
     currentWeatherContainer.appendChild(currentWindSpeedEl);
 
@@ -146,7 +146,7 @@ displayWeather = function(weather, searchTerm) {
         var forecastTemp = weather.daily[i].temp.day;
         var weatherElTemp = document.createElement("li");
 
-        weatherElTemp.innerHTML = "Temperature: " + forecastTemp + " degrees F";
+        weatherElTemp.innerHTML = "Temp: " + forecastTemp + " ° F";
         
 
         // forecast desc
@@ -158,12 +158,12 @@ displayWeather = function(weather, searchTerm) {
         // forecast humidity
         var forecastHum = weather.daily[i].humidity;
         weatherElHum = document.createElement("li");
-        weatherElHum.innerHTML = "Humidity: " + forecastHum;
+        weatherElHum.innerHTML = "Humidity: " + forecastHum + " %";
 
-        // forecast wind speed
+        // forecast Wind
         var forecastWindSpeed = weather.daily[i].wind_speed;
         weatherElWindSpeed = document.createElement("li");
-        weatherElWindSpeed.innerHTML = "Wind Speed: " + forecastWindSpeed;
+        weatherElWindSpeed.innerHTML = "Wind: " + forecastWindSpeed + " MPH";
 
         // forecast uv index
         var forecastUvi = weather.daily[i].uvi;
@@ -187,9 +187,9 @@ displayWeather = function(weather, searchTerm) {
         forecastDayDiv.appendChild(forecastDayP);
         daysContainer.appendChild(forecastDayDiv);
 
-        forecastDayDiv.setAttribute("class", "card flex-wrap justify-content-space-between")
-        forecastDayP.setAttribute("class", "card-body flex dayP")
-        forecastDayUl.setAttribute("class", "card-text text-center flex-wrap col-2 justify-content-space-between")
+        forecastDayDiv.setAttribute("class", "card flex-wrap d-flex p-2 container col-2")
+        forecastDayP.setAttribute("class", " card-body flex dayP col-12 p-2 lh-base ")
+        forecastDayUl.setAttribute("class", "text-center flex-wrap col-2")
     };
 
 }
