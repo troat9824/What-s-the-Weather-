@@ -46,7 +46,7 @@ displayWeather = function(weather, searchTerm) {
 
     for (var i = 0; i < weather.length; i++) {
         // format city name
-        var cityWeather = weather[i].name + weather[i].main.temp;
+        var cityWeather = weather[i].main.temp;
 
 
         //create a container for each repo
