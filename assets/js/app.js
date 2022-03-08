@@ -1,4 +1,4 @@
-var myKey = config.My_Key;
+const myKey = config.My_Key;
 var userFormEl = document.querySelector("#user-form");
 var cityNameInputEl = document.querySelector("#city-name");
 var citySearchTerm = document.querySelector(".city-search-term");
