@@ -34,8 +34,8 @@ function toTitleCase(str) {
 // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
 getWeather = function(cityName) {
-    // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-    var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + myKey;
+    // https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+    var geoUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + myKey;
 
 
 
