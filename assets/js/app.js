@@ -6,7 +6,8 @@ var daysContainerUl = document.querySelector(".days-container-ul");
 var currentWeatherContainer = document.querySelector(".currentWeatherContainer");
 var daysContainer = document.querySelector("#days-container");
 var lineBreak = document.createElement("br");
-
+var savedCitiesContainer = document.querySelector(".saved-cities");
+var savedCities = [];
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
@@ -20,7 +21,27 @@ var formSubmitHandler = function(event) {
     } else {
         alert("Please enter a City name");
     };
+
+    // save to local storage
+
+    savedCities = JSON.parse(localStorage.getItem("savedCities")) || [];
+    savedCities.push(cityName);
+    localStorage.setItem("savedCities", JSON.stringify(savedCities));
+
+    // make local storage links
+    for (var i = 0; i < savedCities.length; i++) {
+        var savedCitiesEl = document.createElement("button");
+        savedCitiesEl.setAttribute("class", "btn past-cities-btn flex-column");
+        savedCitiesEl.textContent = savedCities;
+
+        
+        savedCitiesContainer.appendChild(savedCitiesEl);
+        }
+    
+    
+
 };
+
 
 function toTitleCase(str) {
     return str.replace(

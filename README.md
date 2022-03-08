@@ -1,6 +1,6 @@
 ## What's the Weather?
 
-![Alt text]()
+![Alt text](./assets/images/weather-app-screenshot.jpg)
 
 ## Purpose
 To find out the weather around the world at any given time.
