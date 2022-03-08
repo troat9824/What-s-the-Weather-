@@ -13,6 +13,8 @@ https://troat9824.github.io/What-s-the-Weather-/
 * CSS
 * JavaScript
 * OpenWeather One Call API
+* Bootstrap
+* Google Fonts
 
 # Contributors
 Made by Taylor Vaughn

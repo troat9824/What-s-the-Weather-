@@ -188,8 +188,8 @@ displayWeather = function(weather, searchTerm) {
         daysContainer.appendChild(forecastDayDiv);
 
         forecastDayDiv.setAttribute("class", "card flex-wrap d-flex p-2 container col-2")
-        forecastDayP.setAttribute("class", " card-body flex dayP col-12 p-2 lh-base ")
-        forecastDayUl.setAttribute("class", "text-center flex-wrap col-2")
+        forecastDayP.setAttribute("class", " card-body flex dayP col-12 p-3 lh-base ")
+        forecastDayUl.setAttribute("class", "text-center flex-wrap col-2 rounded")
     };
 
 }

@@ -2,6 +2,7 @@
     text-align: center;
     font-weight: bold;
     font-family: 'Fredoka', sans-serif;
+    justify-content: center;
 }
 
 ul {
@@ -31,12 +32,8 @@ input {
     font-weight: bold;
 }
 p {
-    justify-content: center;
     display: block;
 
-}
-.search {
-    justify-content: center;
 }
 .days {
     flex-wrap: wrap;
